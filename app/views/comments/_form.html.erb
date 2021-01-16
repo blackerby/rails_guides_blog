@@ -10,4 +10,13 @@
   <p>
     <%= form.submit %>
   </p>
+  <div>
+    <%= form.label :status %><br>
+    <%= form.label :status, "Public", value: "public" %>
+    <%= form.radio_button :status, "public", checked: true %>
+    <%= form.label :status, "Private", value: "private" %>
+    <%= form.radio_button :status, "private" %>
+    <%= form.label :status, "Archived", value: "archived" %>
+    <%= form.radio_button :status, "archived" %><br>
+  </div>
 <% end %>
