@@ -1,22 +1,21 @@
-<%= form_with model: article do |form| %>
+<%= form_with(model: article, local: true) do |form| %>
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
-    <%= article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div style="color: red;"><%= message %></div>
     <% end %>
   </div>
 
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
-    <%= article.errors.full_messages_for(:body).each do |message| %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.label :status %><br>
+  <div style="margin: 10px">
     <%= form.label :status, "Public", value: "public" %>
     <%= form.radio_button :status, "public", checked: true %>
     <%= form.label :status, "Private", value: "private" %>
